@@ -42,12 +42,20 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class CardSerializer(serializers.ModelSerializer):
+    number = serializers.SerializerMethodField()
+
+    def get_number(self, obj):
+        number = obj.number
+
+        return number[:6]+'******'+number[12:]
 
     class Meta:
         model = CardModel
         fields = '__all__'
         extra_kwargs = {
             'user': {'read_only': True},
+            'expire':{'write_only': True},
+            'cvv':{'write_only': True},
         }
 
     def create(self, validated_data):
