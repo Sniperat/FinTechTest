@@ -210,7 +210,7 @@ class AddPurchase(APIView):
             openapi.Parameter('Price', openapi.IN_QUERY, description="Price",
                               type=openapi.TYPE_INTEGER),
             openapi.Parameter('UserDocumentCode', openapi.IN_QUERY, description="UserDocumentCode",
-                              type=openapi.TYPE_INTEGER),
+                              type=openapi.TYPE_STRING),
         ],
     )
     def post(self, request):
