@@ -42,12 +42,14 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class CardSerializer(serializers.ModelSerializer):
-    number = serializers.SerializerMethodField()
+    # number = serializers.SerializerMethodField(method_name='get_number')
 
-    def get_number(self, obj):
-        number = obj.number
+    # def get_number(self, obj):
+    #     number = obj.number
 
-        return number[:6]+'******'+number[12:]
+    #     return number[:6]+'******'+number[12:]
+    
+
 
     class Meta:
         model = CardModel
